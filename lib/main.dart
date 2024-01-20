@@ -86,7 +86,7 @@ class Home extends ConsumerWidget {
                             final newTitle = titleController.text.trim();
                             final newContent = contentController.text.trim();
 
-                            if (newTitle.isNotEmpty || newContent.isNotEmpty) {
+                            if (newTitle.isNotEmpty && newContent.isNotEmpty) {
                               ref.read(noteProvider.notifier).addNote(
                                 Notes(
                                   title: newTitle,
@@ -100,7 +100,7 @@ class Home extends ConsumerWidget {
                                 context: context,
                                 builder: (_) {
                                   return AlertDialog(
-                                    content: const Text("Title and Content cannot be empty."),
+                                    content: const Text("Title or Content cannot be empty."),
                                     actions: [
                                       TextButton(
                                         onPressed: () => Navigator.pop(context),
